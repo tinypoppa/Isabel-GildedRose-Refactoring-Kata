@@ -34,6 +34,7 @@ public class TexttestFixture_v2 {
         for (int i = 0; i < days; i++) {
             System.out.println("-------- day " + i + " --------");
 
+            // For each type
             for (ItemType itemType : itemTypes) {
                 System.out.println("Item Type : " + itemType + " Item in Process");
                 System.out.println();
