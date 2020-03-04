@@ -1,17 +1,18 @@
 package com.gildedrose.service;
 
+import com.gildedrose.model.ConjuredItem;
 import com.gildedrose.model.Item;
 
 public class GildedRoseConjured implements IGildedRose {
-    Item[] items;
+    ConjuredItem[] items;
 
     public GildedRoseConjured(Item[] items) {
-        this.items = items;
+        this.items = (ConjuredItem[]) items;
     }
 
     @Override
     public void setItems(Item[] items) {
-        this.items = items;
+        this.items = (ConjuredItem[]) items;
     }
 
     public GildedRoseConjured() {
@@ -26,7 +27,7 @@ public class GildedRoseConjured implements IGildedRose {
                     items[i].quality = 0;
                 }
             } catch (NullPointerException e) {
-                continue;
+                break;
             }
         }
     }

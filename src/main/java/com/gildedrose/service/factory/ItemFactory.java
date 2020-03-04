@@ -53,6 +53,8 @@ public class ItemFactory implements IItemFactory {
                 ConjuredItem conjuredItem = new ConjuredItem(items[i].name, items[i].sellIn, items[i].quality);
                 newItems[index] = conjuredItem;
                 ++index;
+            }else if (items[i] instanceof ConjuredItem ){
+                newItems[index] = (ConjuredItem) items[i];
             }
         }
         return newItems;

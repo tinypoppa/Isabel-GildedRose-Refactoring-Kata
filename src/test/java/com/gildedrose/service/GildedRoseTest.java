@@ -74,10 +74,22 @@ class GildedRoseTest {
     }
 
     @Test
-    void fooIItemFactory() throws Exception {
+    void fooIItemFactoryRegular() throws Exception {
         Item[] items = new Item[] { new Item("foo", 1, 1),  new ConjuredItem("boo", 2, 1)};
         IItemFactory itemFactory = new ItemFactory(items);
         items = itemFactory.getItems(ItemType.REGULAR);
+        IGildedRoseStrategy gildedRoseStrategy = items[0].gildedRoseStrategy;
+        IGildedRose app = gildedRoseStrategy.getGildedRoseStrategy();
+        app.setItems(items);
+        app.updateQuality();
+        assertEquals(0, items[0].quality);
+    }
+
+    @Test
+    void fooIItemFactoryConjured() throws Exception {
+        Item[] items = new Item[] { new ConjuredItem("boo", 2, 1)};
+        IItemFactory itemFactory = new ItemFactory(items);
+        items = itemFactory.getItems(ItemType.CONJURED);
         IGildedRoseStrategy gildedRoseStrategy = items[0].gildedRoseStrategy;
         IGildedRose app = gildedRoseStrategy.getGildedRoseStrategy();
         app.setItems(items);

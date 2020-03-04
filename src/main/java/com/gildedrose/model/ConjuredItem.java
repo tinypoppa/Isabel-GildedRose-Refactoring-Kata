@@ -13,6 +13,6 @@ public class ConjuredItem extends Item {
 
     @Override
     public String toString() {
-        return ITEM_CONJURED + ", " + this.name + ", " + this.sellIn + ", " + this.quality;
+        return ITEM_CONJURED + ":" + this.name + ", " + this.sellIn + ", " + this.quality;
     }
 }
