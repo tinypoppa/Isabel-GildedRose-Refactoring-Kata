@@ -31,14 +31,15 @@ public class TexttestFixture_v2 {
             days = Integer.parseInt(args[0]) + 1;
         }
 
-
         // For each type
         for (ItemType itemType : itemTypes) {
             System.out.println("Item Type : " + itemType + " Item in Process");
             System.out.println();
+
             items = itemFactory.getItems(itemType);
             IGildedRoseStrategy gildedRoseStrategy = items[0].gildedRoseStrategy;
             IGildedRose app = gildedRoseStrategy.getGildedRoseStrategy();
+
             for (int i = 0; i < days; i++) {
                 System.out.println("-------- day " + i + " --------");
                 app.setItems(items);
