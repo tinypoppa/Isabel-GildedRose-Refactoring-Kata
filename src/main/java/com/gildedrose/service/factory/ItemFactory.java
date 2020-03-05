@@ -56,12 +56,12 @@ public class ItemFactory implements IItemFactory {
     private Item[] getConjuredItems() {
         ConjuredItem[] newItems = new ConjuredItem[items.length];
         for (int i = 0, index = 0; i < items.length; i++) {
-            if (items[i].name.contains(CONJURED_KEY)) {
+            if (items[i] instanceof ConjuredItem) {
+                newItems[index] = (ConjuredItem) items[i];
+            } else if (items[i].name.contains(CONJURED_KEY)) {
                 ConjuredItem conjuredItem = new ConjuredItem(items[i].name, items[i].sellIn, items[i].quality);
                 newItems[index] = conjuredItem;
                 ++index;
-            } else if (items[i] instanceof ConjuredItem) {
-                newItems[index] = (ConjuredItem) items[i];
             }
         }
         return newItems;
