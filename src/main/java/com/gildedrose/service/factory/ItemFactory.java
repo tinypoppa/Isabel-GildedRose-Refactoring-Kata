@@ -8,8 +8,8 @@ import org.slf4j.LoggerFactory;
 
 
 /*
-* This class facilitates the correct creation of the Item object
-* Base on the correct strategy to implement*/
+ * This class facilitates the correct creation of the Item object
+ * Base on the correct strategy to implement*/
 
 public class ItemFactory implements IItemFactory {
     private static final Logger logger = LoggerFactory.getLogger(ItemFactory.class);
@@ -24,15 +24,22 @@ public class ItemFactory implements IItemFactory {
 
     @Override
     public Item[] getItems(ItemType itemType) throws Exception {
-        if (itemType.name().equals(REGULAR)) {
-            return getNormalItems();
-        } else if (itemType.name().equals(CONJURED)) {
-            return getConjuredItems();
-        } else {
-            String error_msg = "Not a valid type of an Item";
+        if (itemType != null) {
+            if (itemType.name().equals(REGULAR)) {
+                return getNormalItems();
+            } else if (itemType.name().equals(CONJURED)) {
+                return getConjuredItems();
+            } else {
+                String error_msg = "Not a valid type of an Item";
+                logger.error(error_msg, new Exception(error_msg));
+                throw new Exception();
+            }
+        }else  {
+            String error_msg = "valid type of an Item not defined";
             logger.error(error_msg, new Exception(error_msg));
             throw new Exception();
         }
+
     }
 
     private Item[] getNormalItems() {
@@ -53,7 +60,7 @@ public class ItemFactory implements IItemFactory {
                 ConjuredItem conjuredItem = new ConjuredItem(items[i].name, items[i].sellIn, items[i].quality);
                 newItems[index] = conjuredItem;
                 ++index;
-            }else if (items[i] instanceof ConjuredItem ){
+            } else if (items[i] instanceof ConjuredItem) {
                 newItems[index] = (ConjuredItem) items[i];
             }
         }
