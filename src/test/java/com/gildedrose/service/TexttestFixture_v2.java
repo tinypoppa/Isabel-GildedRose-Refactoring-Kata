@@ -22,7 +22,7 @@ public class TexttestFixture_v2 {
                 new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
                 // this conjured item does not work properly yet
                 new Item("Conjured Mana Cake", 3, 6),
-                new ConjuredItem("Cake", 50, 6)
+                new ConjuredItem("Cake", 50, 21)
         };
 
 

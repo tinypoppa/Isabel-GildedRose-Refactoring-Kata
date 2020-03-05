@@ -24,7 +24,8 @@ public class GildedRoseConjured implements IGildedRose {
         for (int i = 0; i < items.length; i++) {
             try {
                 if (items[i].quality > 0) {
-                    items[i].quality = 0;
+                    items[i].quality = items[i].quality + 3;
+                    items[i].sellIn = 0;
                 }
             } catch (NullPointerException e) {
                 break;
