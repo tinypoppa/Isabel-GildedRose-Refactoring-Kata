@@ -45,7 +45,7 @@ public class ItemFactory implements IItemFactory {
     private Item[] getNormalItems() {
         Item[] newItems = new Item[items.length];
         for (int i = 0, index = 0; i < items.length; i++) {
-            if (!items[i].name.contains(CONJURED_KEY)) {
+            if (!items[i].name.contains(CONJURED_KEY) && !(items[i] instanceof ConjuredItem)) {
                 newItems[index] = items[i];
                 ++index;
             }
