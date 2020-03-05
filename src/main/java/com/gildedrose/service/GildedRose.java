@@ -18,6 +18,8 @@ public class GildedRose implements IGildedRose {
 
     }
 
+    //A better approach:
+    // All these code can be converted to rule implemented using an XML rule validation to execute each case.
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
             try {
